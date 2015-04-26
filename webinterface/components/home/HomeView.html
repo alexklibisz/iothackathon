@@ -1,0 +1,30 @@
+<div class="container container">
+    <div class="page-header" id="banner">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h2>Family Member / Patient Profile</h2>
+        <h3>Name: {{person.name}}</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Medication</th>
+                    <th>Time Taken</th>
+                    <th>Pills Remaining</th>
+                    <th>Estimated Refill</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="m in data.medications">
+                    <td>{{m.name}}</td>
+                    <td>{{m.timeTaken}}</td>
+                    <td>{{m.pillsRemaining}}</td>
+                    <td>{{m.estimatedRefill}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
