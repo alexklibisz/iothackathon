@@ -4,6 +4,8 @@ app.controller('HomeController',
         $scope.updated = false;
         $scope.secondsAgo = 0;
 
+        $scope.pillsRemaining = 0;
+
         $scope.person = {
             name: 'Jane Doe'
         }
@@ -32,8 +34,9 @@ app.controller('HomeController',
          */
         var parseData = function(data) {
             var updated = $scope.data.meds,
-                weightPerPill = 30,
-                pressureThreshold = 200,
+                weightPerPill = 75,
+                weightThreshold = 750,
+                pressureThreshold = 40,
                 pillsPerDay = 2;
 
             $scope.updated = false;
@@ -52,11 +55,14 @@ app.controller('HomeController',
                 target.name = source.name;
 
                 // convert the weight to pillsRemaining
-                if (target.weight === undefined) target.weight = source.weight;
+                if (target.weight === undefined) target.weight = source.weight - weightThreshold;
+                target.weight = source.weight - weightThreshold;
                 tmp = target.pillsRemaining;
                 target.pillsRemaining = Math.floor(target.weight / weightPerPill);
                 if (tmp != target.pillsRemaining) $scope.updated = true;
+                $scope.pillsRemaining = target.pillsRemaining;
 
+                if(target.timeTaken === undefined) target.timeTaken = new Date();
                 // check the pressure to update the timeTaken
                 if (source.pressure < pressureThreshold
                     && target.pressure !== source.pressure) {
@@ -76,11 +82,8 @@ app.controller('HomeController',
 
                 updated[i] = target;
             }
-       
             return updated;
-
         }
-
 
         poll();
 

@@ -2,11 +2,11 @@
     <div class="page-header" id="banner">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
+                <h2>Family Member / Patient Profile</h2>
             </div>
         </div>
     </div>
     <div class="row">
-        <h2>Family Member / Patient Profile</h2>
         <h3>Name: {{person.name}}</h3>
         <h3>Medications</h3>
         <table class="table table-striped">
@@ -22,7 +22,7 @@
                 <tr style="font-weight: bold" ng-repeat="m in data.meds">
                     <td>{{m.name}}</td>
                     <td>{{m.timeTaken | date:"MM/dd/yyyy 'at' h:mma"}}</td>
-                    <td>{{m.pillsRemaining}}</td>
+                    <td ng-model="pillsRemaining">{{pillsRemaining}}</td>
                     <td>{{m.estimatedRefill | date:"MM/dd/yyyy"}}</td>
                 </tr>
                 <tr>
