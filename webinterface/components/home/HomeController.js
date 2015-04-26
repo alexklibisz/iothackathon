@@ -1,28 +1,21 @@
 app.controller('HomeController',
-    function($scope, $timeout) {
+    function($scope, $timeout, $http) {
 
         $scope.person = {
             name: 'Leah R.'
         }
 
-        var date = new Date();
-
         $scope.data = {
-            medications: [{
-                'name': 'Medicine p',
-                'timeTaken': new Date(),
-                'pillsRemaining': 5,
-                'estimatedRefill': new Date()
-            }, {
-                'name': 'Medicine 2',
-                'timeTaken': new Date(),
-                'pillsRemaining': 3,
-                'estimatedRefill': new Date()
-            }, {
-                'name': 'Medicine 3',
-                'timeTaken': new Date(),
-                'pillsRemaining': 6,
-                'estimatedRefill': new Date()
-            }]
+            medications: []
         }
+
+        $scope.test = function() {
+            $scope.data.medications[0].pillsRemaining = Math.floor((Math.random() * 10) + 1);
+            $scope.data.medications[1].pillsRemaining = Math.floor((Math.random() * 10) + 1);
+            $scope.data.medications[2].pillsRemaining = Math.floor((Math.random() * 10) + 1);
+        }
+
+        $http.get('http://localhost:8000/data.json').success(function(data) {
+            $scope.data.medications = data;
+        })
     });
