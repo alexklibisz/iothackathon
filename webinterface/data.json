@@ -1,7 +1,7 @@
 [{
     "name": "Medicine 1",
     "timeTaken": "2015-04-26 13:00",
-    "pillsRemaining": 5,
+    "pillsRemaining": 9,
     "estimatedRefill": "2015-04-30 13:00"
 }, {
     "name": "Medicine 2",

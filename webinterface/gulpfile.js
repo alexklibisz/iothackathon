@@ -29,4 +29,13 @@ gulp.task('webserver', function() {
     }));
 });
 
-gulp.task('default', ['watch', 'html', 'js', 'css', 'webserver']);
+gulp.task('livewebserver', function() {
+  gulp.src('.')
+    .pipe(webserver({
+      livereload: false,
+      open: true
+    }));
+});
+
+gulp.task('dev', ['watch', 'html', 'js', 'css', 'webserver']);
+gulp.task('live', ['livewebserver']);
