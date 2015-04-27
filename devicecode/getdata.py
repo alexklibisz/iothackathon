@@ -1,15 +1,19 @@
+'''
+4/26/15 -- CISCO WISE / IEEE Internet Of Things Hackathon, San Jose, CA
+
+This script polls the hardware sensors for weight and pressure and
+prints the results to a JSON file at the path ../webinterface/data.json
+'''
+
 import os
 import usb.core
 import time
 
-
 usbip_server = "10.0.5.1"
-
 
 def normalize(value):
     norm_value = value / 4.096
     return int(norm_value)
-
 
 # The main function
 def main():
@@ -38,10 +42,8 @@ def main():
         data0 = (data[0x0b] | ((data[0x0c] & 0xf0) << 4))
         data1 = (data[0x0d] | ((data[0x0c] & 0x0f) << 8))
 
-
         # Print out the normalized data
         print(normalize(data0), normalize(data1))
-
         jsonFile = open("../webinterface/data.json","w+")
         jsonFile.write("[{\n")
         jsonFile.write("\"name\":\"Marbles\",\n")
@@ -55,7 +57,6 @@ def main():
         jsonFile.flush
 
         time.sleep(1)
-
 
 if __name__ == "__main__":
     main()
