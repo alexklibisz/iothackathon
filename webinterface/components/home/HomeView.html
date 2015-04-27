@@ -22,7 +22,7 @@
                 <tr style="font-weight: bold" ng-repeat="m in data.meds">
                     <td>{{m.name}}</td>
                     <td>{{m.timeTaken | date:"MM/dd/yyyy 'at' h:mma"}}</td>
-                    <td ng-model="pillsRemaining">{{pillsRemaining}}</td>
+                    <td>{{m.pillsRemaining}}</td>
                     <td>{{m.estimatedRefill | date:"MM/dd/yyyy"}}</td>
                 </tr>
                 <tr>

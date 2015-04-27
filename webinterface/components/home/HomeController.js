@@ -1,10 +1,14 @@
+/**
+ * The primary application logic.
+ * Uses the function poll() to retrieve the data.json file every 2 seconds.
+ * poll() calls parseData() to convert the data to a usable format.
+ *
+ * It's rough, but works.
+ */
 app.controller('HomeController',
     function($scope, $timeout, $http) {
 
         $scope.updated = false;
-        $scope.secondsAgo = 0;
-
-        $scope.pillsRemaining = 0;
 
         $scope.person = {
             name: 'Jane Doe'
@@ -60,7 +64,7 @@ app.controller('HomeController',
                 tmp = target.pillsRemaining;
                 target.pillsRemaining = Math.floor(target.weight / weightPerPill);
                 if (tmp != target.pillsRemaining) $scope.updated = true;
-                $scope.pillsRemaining = target.pillsRemaining;
+                //$scope.pillsRemaining = target.pillsRemaining;
 
                 if(target.timeTaken === undefined) target.timeTaken = new Date();
                 // check the pressure to update the timeTaken
@@ -77,7 +81,7 @@ app.controller('HomeController',
                 target.estimatedRefill.setDate((new Date()).getDate() + daysRemaining);
 
                 if($scope.updated) {
-                    alert("Updated " + target.name);
+                    alert("Updated medication: " + target.name);
                 }
 
                 updated[i] = target;
