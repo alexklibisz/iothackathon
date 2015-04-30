@@ -35,7 +35,10 @@ All code is found in this repository and can be freely used.
 
 ##Team
 
+- Jawahar Santosh, San Jose State University
 - Barbara Porter, CTO, FragranceNet.com
-- Alex Klibisz, Computer Science Undergraduate, University of Tennessee
-- Nat Baklitskaya, Qualcomm Atheros, Inc.
 - Shriv Prattipati, Wipro Limited
+- Nat Baklitskaya, Qualcomm Atheros, Inc.
+- Alex Klibisz, Computer Science Undergraduate, University of Tennessee
+
+<img src="team.jpeg" width="600"/>
