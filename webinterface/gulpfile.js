@@ -1,3 +1,9 @@
+/**
+ * Commands:
+ * - gulp webserver - starts a webserver that listens for file changes and reloads the page
+ * - gulp livewebserver - start a webserver with no live reload, but file changes are still recognized on manual reload
+ */
+
 var gulp = require('gulp'),
   gutil = require('gulp-util'),
   webserver = require('gulp-webserver');
